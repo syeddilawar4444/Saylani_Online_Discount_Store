@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import Icon from 'react-native-vector-icons/FontAwesome5';
 // import screens
 import MainPage from '../Screens/MainPage';
 import Login from '../Screens/Login';
@@ -27,7 +28,7 @@ const Tab = createBottomTabNavigator();
 function Navigation() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName="User">
+      <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="User">
         <Stack.Screen name="MainPage" component={MainPage} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Signup" component={Signup} />
@@ -48,10 +49,46 @@ function Navigation() {
 
 function MyTabs() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Cart" component={Cart} />
-      <Tab.Screen name="Setting" component={UserSetting} />
+    <Tab.Navigator
+      screenOptions={{
+        tabBarActiveTintColor: "#50bd48",
+    
+        tabBarLabelStyle: {
+          fontSize: 14,
+          color:"gray"
+        }
+      }}
+    >
+      <Tab.Screen name="Home" component={Home} options={{
+          headerShown:false,
+
+        tabBarLabel: "Home",
+        tabBarIcon: ({ color }) => (
+          <Icon name="home" size={22} color={color} />
+        )
+      }
+      }
+      />
+      <Tab.Screen name="Cart" component={Cart}
+        options={{
+          headerShown:false,
+
+          tabBarLabel: "Cart",
+          tabBarIcon: ({ color }) => (
+            <Icon name="shopping-cart" size={22} color={color} />
+          )
+        }
+        }
+      />
+      <Tab.Screen name="Setting" component={UserSetting}
+        options={{
+          tabBarLabel: "Account",
+          tabBarIcon: ({ color }) => (
+            <Icon name="user-alt" size={22} color={color} />
+          )
+        }
+        }
+      />
 
     </Tab.Navigator>
   );
