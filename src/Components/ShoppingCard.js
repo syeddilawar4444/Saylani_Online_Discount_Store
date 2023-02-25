@@ -11,17 +11,28 @@ const ShoppingCard = () => {
         <View style={{ marginVertical: 20, flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}>
 
             <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Image style={{
-                    width: 110, height: 70, borderRadius: 20, shadowColor: "#000",
+                <View style={{
+                    // backgroundColor:"red",
+                    borderRadius: 15,
+                    shadowColor: "#000",
                     shadowOffset: {
                         width: 0,
-                        height: 3,
+                        height: 2,
                     },
-                    shadowOpacity: 0.29,
-                    shadowRadius: 4.65,
+                    shadowOpacity: 0.4,
+                    shadowRadius: 3.84,
+                    elevation: 5,
+                    overflow:"hidden",
+                }}>
 
-                    elevation: 7,
-                }} source={{ uri: 'https://media.istockphoto.com/id/165835419/photo/large-group-of-canned-food-sitting-on-white-backdrop.jpg?s=612x612&w=0&k=20&c=KZTuXHShupJ8ID-fql5DhUEL5__YhFJ2K2YgxDu8kJM=' }} />
+                    <Image style={{
+                        width: 110, height: 70,
+
+                        // eletivaon: 24,
+
+                        // elevation: 5,
+                    }} source={{ uri: 'https://media.istockphoto.com/id/165835419/photo/large-group-of-canned-food-sitting-on-white-backdrop.jpg?s=612x612&w=0&k=20&c=KZTuXHShupJ8ID-fql5DhUEL5__YhFJ2K2YgxDu8kJM=' }} />
+                </View>
                 <Text>Item Name</Text>
             </View>
             <View style={{ flexDirection: "row", alignItems: "center" }}>

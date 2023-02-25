@@ -38,6 +38,8 @@ function Navigation() {
         <Stack.Screen name="AddItem" component={AddItem} />
         <Stack.Screen name="Admin" component={AdminAccount} />
         <Stack.Screen name="AdminHome" component={AdminHome} />
+        {/* <Stack.Screen name="Abd" component={Cart} /> */}
+
       </Stack.Navigator>
     </NavigationContainer>
   );
