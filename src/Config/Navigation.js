@@ -84,6 +84,7 @@ function MyTabs() {
       />
       <Tab.Screen name="Setting" component={UserSetting}
         options={{
+          headerShown:false,
           tabBarLabel: "Account",
           tabBarIcon: ({ color }) => (
             <Icon name="user-alt" size={22} color={color} />

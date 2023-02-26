@@ -5,8 +5,7 @@ import React from 'react'
 const UserSetting = () => {
     return (
         <View>
-    
-            <Text>Setting</Text>
+            <Text style={{fontSize:30,color:"skyblue",textAlign:"center",fontWeight:"bold",letterSpacing:2}}>Settings</Text>
         </View>
     )
 }

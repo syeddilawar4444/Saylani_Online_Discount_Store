@@ -12,10 +12,18 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import ShoppingCard from '../Components/ShoppingCard';
 
-import React from 'react';
+import React,{useRef} from 'react';
 
 const Cart = () => {
+
+  const email = useRef("");
+  const phoneNumber = useRef("");
+  const shippingAddress = useRef("");
+
+
   const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+
+  
 
   return (
     <View style={{paddingHorizontal: 10, flex: 1, backgroundColor: 'white'}}>
@@ -86,6 +94,10 @@ const Cart = () => {
               // onChangeText={(e) => setUsername(e)}
               placeholder="FullName"
               placeholderTextColor={'gray'}
+              onSubmitEditing={()=>{
+                email.current.focus()
+              }}
+              returnKeyType="next"
               style={{
                 // backgroundColor: "#e0e0e0",
                 // borderRadius: 50,
@@ -102,9 +114,14 @@ const Cart = () => {
               }}
             />
             <TextInput
+            ref={email}
               maxLength={24}
               blurOnSubmit={false}
               selectionColor="lightgray"
+              onSubmitEditing={()=>{
+                phoneNumber.current.focus()
+              }}
+              returnKeyType="next"
 
               // value={username}
               // enterKeyHint={"next"}
@@ -127,8 +144,13 @@ const Cart = () => {
             <TextInput
               maxLength={24}
               blurOnSubmit={false}
+              ref={phoneNumber}
               // value={username}
               selectionColor="lightgray"
+              onSubmitEditing={()=>{
+                shippingAddress.current.focus()
+              }}
+          
 
               // enterKeyHint={"next"}
               // onChangeText={(e) => setUsername(e)}
@@ -153,7 +175,8 @@ const Cart = () => {
               // maxLength={24}
               blurOnSubmit={false}
               selectionColor="lightgray"
-
+              ref={shippingAddress}
+              returnKeyType="done"
               // value={username}
               // enterKeyHint={"next"}
               // onChangeText={(e) => setUsername(e)}
