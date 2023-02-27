@@ -48,7 +48,10 @@ const textColor  ={
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={back.backgroundColor}
         />
+        <View style={{flex:1}}>
+
   <Navigator />
+        </View>
         </>
   
       // {/* <ScrollView

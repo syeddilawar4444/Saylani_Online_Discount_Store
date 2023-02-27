@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, Settings } from 'react-native';
+import { View, Text, Settings, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -19,6 +19,9 @@ import AdminAccount from '../Screens/AdminAccount';
 import AdminHome from '../Screens/AdminHome';
 
 
+import NavbarAdmin from '../Components/NavAdmin';
+
+
 
 
 const Stack = createNativeStackNavigator();
@@ -28,17 +31,19 @@ const Tab = createBottomTabNavigator();
 function Navigation() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="User">
+      <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Admin">
         <Stack.Screen name="MainPage" component={MainPage} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Signup" component={Signup} />
 
-        <Stack.Screen name="User" component={MyTabs} />
+        <Stack.Screen name="User" component={User} />
+        <Stack.Screen name="Admin" component={Admin} />
 
-        <Stack.Screen name="AddItem" component={AddItem} />
+
+        {/* <Stack.Screen name="AddItem" component={AddItem} />
         <Stack.Screen name="Admin" component={AdminAccount} />
-        <Stack.Screen name="AdminHome" component={AdminHome} />
-        {/* <Stack.Screen name="Abd" component={Cart} /> */}
+        <Stack.Screen name="AdminHome" component={AdminHome} /> */}
+        <Stack.Screen name="Abd" component={UserSetting} />
 
       </Stack.Navigator>
     </NavigationContainer>
@@ -49,7 +54,7 @@ function Navigation() {
 
 
 
-function MyTabs() {
+function User() {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -83,6 +88,57 @@ function MyTabs() {
         }
       />
       <Tab.Screen name="Setting" component={UserSetting}
+        options={{
+          headerShown:false,
+          tabBarLabel: "Account",
+          tabBarIcon: ({ color }) => (
+            <Icon name="user-alt" size={22} color={color} />
+          )
+        }
+        }
+      />
+
+    </Tab.Navigator>
+  );
+}
+
+function Admin() {
+  return (
+    <Tab.Navigator
+      screenOptions={{
+        tabBarActiveTintColor: "#50bd48",
+    
+        tabBarLabelStyle: {
+          fontSize: 14,
+          color:"gray"
+        }
+      }}
+    >
+      <Tab.Screen name="AdminHome" component={AdminHome} options={{
+          headerShown:false,
+        headerPressColor:"red",
+   
+    
+
+        tabBarLabel: "Home",
+        tabBarIcon: ({ color }) => (
+          <Icon name="home" size={22} color={color} />
+        )
+      }
+      }
+      />
+      <Tab.Screen name="AddItem" component={AddItem}
+        options={{
+          headerShown:false,
+
+          tabBarLabel: "Add Items",
+          tabBarIcon: ({ color }) => (
+            <Icon name="plus-circle" size={22} color={color} />
+          )
+        }
+        }
+      />
+      <Tab.Screen name="AdminAccount" component={AdminAccount}
         options={{
           headerShown:false,
           tabBarLabel: "Account",

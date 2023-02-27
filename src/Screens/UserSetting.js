@@ -6,8 +6,9 @@ import {
   TextInput,
   View,
   TouchableOpacity,
+  FlatList,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Icons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import OrderView from '../Components/OrderView';
@@ -17,7 +18,7 @@ const UserSetting = () => {
     'https://e7.pngegg.com/pngimages/613/636/png-clipart-computer-icons-user-profile-male-avatar-avatar-heroes-logo-thumbnail.png';
   const [showCheck, setShowCheck] = useState('');
   return (
-    <View>
+    <View >
       <Text
         style={{
           fontSize: 30,
@@ -29,11 +30,11 @@ const UserSetting = () => {
         Settings
       </Text>
 
-      <View style={{justifyContent: 'center', alignItems: 'center'}}>
-        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+      <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
           <Image
-            style={{width: 100, height: 100, borderRadius: 50}}
-            source={{uri: img}}
+            style={{ width: 100, height: 100, borderRadius: 50 }}
+            source={{ uri: img }}
           />
         </View>
 
@@ -48,7 +49,7 @@ const UserSetting = () => {
           }}>
           <TextInput
             maxLength={24}
-            style={{fontSize: 20}}
+            style={{ fontSize: 20 }}
             placeholder="Update Full Name"
             onChangeText={e => setShowCheck(e)}
           />
@@ -60,7 +61,7 @@ const UserSetting = () => {
         </View>
       </View>
 
-      <View style={{paddingHorizontal: 10}}>
+      <View style={{ paddingHorizontal: 10 }}>
         <Text
           style={{
             fontSize: 23,
@@ -72,28 +73,38 @@ const UserSetting = () => {
         </Text>
       </View>
 
-      <OrderView />
-      <OrderView />
 
-      <TouchableOpacity
-        style={{
-          backgroundColor: 'green',
-          paddingVertical: 13,
-          borderRadius: 10,
-          alignItems: 'center',
-          marginVertical: 10,
-          
-        }}>
-        <Text
+       
+
+      <View contentContainerStyle={{ }}>
+
+        <OrderView />
+        <OrderView />
+        <TouchableOpacity
           style={{
-            fontSize: 18,
-            color: 'white',
-            letterSpacing: 3,
-            fontWeight: 'bold',
+            backgroundColor: 'green',
+            paddingVertical: 13,
+            borderRadius: 10,
+            alignItems: 'center',
+            marginVertical: 10,
+            marginHorizontal: 20,
+
+
           }}>
-          Logout
-        </Text>
-      </TouchableOpacity>
+          <Text
+            style={{
+              fontSize: 18,
+              color: 'white',
+              letterSpacing: 3,
+              fontWeight: 'bold',
+            }}>
+            Logout
+          </Text>
+        </TouchableOpacity>
+
+      </View>
+
+
     </View>
   );
 };

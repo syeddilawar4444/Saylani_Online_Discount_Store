@@ -1,26 +1,47 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 // import Ionicons from 'react-native-vector-icons/Ionicons';
-import React from 'react'
+import React from 'react';
 
 const NavbarAdmin = () => {
-    return (
-        <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
-            <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                <TouchableOpacity>
-                    {/* <Ionicons name='person-circle' size={75} color={'#61B846'} /> */}
-                </TouchableOpacity>
-                <View>
-                    <Text style={{ fontSize: 24, fontWeight: '700' }}>Syed Dilawar </Text>
-                    <Text style={{ fontSize: 18, fontWeight: '700' }}>Admin</Text>
-                </View>
-            </View>
-            <TouchableOpacity>
-                <Image style={{width:50,height:50}} source={ require('../assets/Order.png')} />
-            </TouchableOpacity>
+  return (
+    <View
+      style={{
+        // display: 'flex',
+        // flexDirection: 'row',
+        // alignItems: 'center',
+        // justifyContent: 'space-between',
+        borderBottomColor: '#adadad',
+        borderBottomWidth: 3,
+        paddingVertical:10
+      }}>
+      <View
+        style={{flexDirection: 'row',alignItems:"center"}}>
+        <View style={{flex: 1.50,}}>
+          <Image
+            style={{width: 70, height: 70, borderRadius: 50}}
+            source={{
+              uri: 'https://e7.pngegg.com/pngimages/613/636/png-clipart-computer-icons-user-profile-male-avatar-avatar-heroes-logo-thumbnail.png',
+            }}
+          />
         </View>
-    )
-}
 
-export default NavbarAdmin
+        <View style={{flex: 5}}>
+          <Text style={{fontSize: 24, fontWeight: '700', color: '#233f7a'}}>
+            Syed Dilawar{' '}
+          </Text>
+          <Text style={{fontSize: 18, fontWeight: '700'}}>Admin</Text>
+        </View>
+        <TouchableOpacity style={{flex: 1}}>
+          <Image
+            style={{width: 40, height: 40}}
+            source={require('../assets/Order.png')}
+          />
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
 
-const styles = StyleSheet.create({})
+export default NavbarAdmin;
+
+const styles = StyleSheet.create({});

@@ -1,10 +1,11 @@
 import React, { useRef, useState } from "react";
-import { Text, TouchableOpacity, View, TextInput,ActivityIndicator,Alert } from "react-native";
+import { Text, TouchableOpacity, View, TextInput, ActivityIndicator, Alert } from "react-native";
 // import CheckBox from '@react-native-community/checkbox';
 // import CheckBox from 'react-native-check-box'
 // import Background from "./Background";
 import InputField from "../Components/InputField";
 import Btn from "../Components/Btn";
+import Icons from "react-native-vector-icons/MaterialCommunityIcons"
 // import BaseUrl from "../constant/BaseUrl";
 // import axios from "axios";
 // import {signInFirebase} from "../Config/firebase"
@@ -13,8 +14,8 @@ import Btn from "../Components/Btn";
 function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading,setLoading] = useState(false)
-  const [respon ,setRespon] = useState("")
+  const [loading, setLoading] = useState(false)
+  const [respon, setRespon] = useState("")
   const passwordInputRef = useRef();
 
   // const loginUser = async() =>{
@@ -51,7 +52,7 @@ function Login(props) {
   //       }
 
   // }
-  const loginUser = ()=>{
+  const loginUser = () => {
     alert("dilawr")
   }
   return (
@@ -81,50 +82,60 @@ function Login(props) {
         >
           <Text style={{ fontSize: 35, color: "#054516" }}>SAYLANI WELFAER</Text>
           <Text>ONLINE DISCOUNT STORE</Text>
-          <TextInput
-            placeholder="Email..."
-            autoFocus
-            returnKeyType="next"
-            onChangeText={(e) => setEmail(e)}
-            onSubmitEditing={()=>{
+          {/* email input with emailIcon */}
+          <View style={{flexDirection:'row',alignItems:"center",  backgroundColor: "#e0e0e0",
+                borderRadius: 100,
+                color: "#054516",
+                paddingHorizontal: 10,
+                width: "77%",
+                paddingVertical: 3,
+                marginTop: 14,
+                fontSize: 16,}}>
+
+            <Icons name="email-outline" size={25} color="gray" />
+            <TextInput
+              placeholder="Email..."
+              autoFocus
+              returnKeyType="next"
+              onChangeText={(e) => setEmail(e)}
+              onSubmitEditing={() => {
                 passwordInputRef.current.focus()
-            }}
-            value={email}
-            keyboardType={"email-address"}
-            style={{
-              backgroundColor: "#e0e0e0",
-              borderRadius: 100,
-              color: "#054516",
-              paddingHorizontal: 10,
-              width: "77%",
-              paddingVertical: 10,
-              marginTop: 14,
-              fontSize: 16,
-              
-            }}
-          />
+              }}
+              value={email}
+              keyboardType={"email-address"}
+              style={{
+              }}
+            />
+          </View>
+            
+
+
+<View style={{flexDirection:'row',alignItems:"center",  backgroundColor: "#e0e0e0",
+                borderRadius: 100,
+                color: "#054516",
+                paddingHorizontal: 10,
+                width: "77%",
+                paddingVertical: 3,
+                marginTop: 14,
+                fontSize: 16,}}>
+
+            <Icons name="lock-outline" size={25} color="gray" />
+         
           <TextInput
             placeholder="Password..."
-             ref={passwordInputRef}
+            ref={passwordInputRef}
             value={password}
             onChangeText={(e) => setPassword(e)}
             secureTextEntry={true}
             onSubmitEditing={
-                loginUser
-                
+              loginUser
+
             }
             style={{
-              backgroundColor: "#e0e0e0",
-              borderRadius: 100,
-              color: "#054516",
-              paddingHorizontal: 10,
-              width: "77%",
-              paddingVertical: 10,
-              marginTop: 14,
-              fontSize: 16,
+           
             }}
           />
-
+</View>
           {/* <InputField vaue={username} placeholder="Email..." keyboardType={"email-address"}  />       
                         <InputField placeholder="Password..." secureTextEntry={true}  />    */}
 
@@ -136,13 +147,13 @@ function Login(props) {
           </View>
           {/* loginButton */}
 
-          {loading ?  <ActivityIndicator style={{alignSelf:"center",marginTop:7}} size={"large"}  color="#0000ff"/> :
-          <Btn
-            bgColor="green"
-            textColor="white"
-            btnLable="Login"
-            press={loginUser}
-          />}
+          {loading ? <ActivityIndicator style={{ alignSelf: "center", marginTop: 7 }} size={"large"} color="#0000ff" /> :
+            <Btn
+              bgColor="green"
+              textColor="white"
+              btnLable="Login"
+              press={loginUser}
+            />}
           {/* Don't have an account */}
           <View
             style={{
