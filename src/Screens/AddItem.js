@@ -6,7 +6,7 @@ import {
     View,
     Alert,
     TextInput,
-
+    ScrollView,
 } from 'react-native';
 import React, { useState } from 'react';
 // import * as ImagePicker from 'expo-image-picker';
@@ -14,6 +14,7 @@ import React, { useState } from 'react';
 import NavbarAdmin from '../Components/NavAdmin';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DropDown from '../Components/DropDown';
+import CustomDropdown from '../Components/CustomDropdown';
 
 const AddItem = () => {
     const [image, setImage] = useState(null);
@@ -37,23 +38,26 @@ const AddItem = () => {
         <>
             <View>
                 <NavbarAdmin />
-                <View style={{ paddingHorizontal: 10 }}>
+                <ScrollView style={{ paddingHorizontal: 10 }} contentContainerStyle={{ flexGrow: 1 }}>
                     <Text style={{ color: '#464773', fontSize: 25 }}>Add New Item</Text>
 
                     <View
-                        style={{
-                            backgroundColor: 'red',
-                            paddingHorizontal: 10,
-                            height: 800,
-                            marginTop: 10,
-                        }}>
+                        style={
+                            {
+                                // flex: 0.
+                                paddingHorizontal: 10,
+                                // height: 800,
+                                marginTop: 10,
+                                // backgroundColor: "red"
+                            }
+                        }>
                         <TouchableOpacity
                             style={{
                                 backgroundColor: '#D9D9D9',
                                 height: 200,
                                 alignItems: 'center',
                                 justifyContent: 'center',
-                                borderRadius: 20
+                                borderRadius: 20,
                             }}>
                             <Icon name="camera" size={60} style={{ opacity: 0.6 }} />
                         </TouchableOpacity>
@@ -65,24 +69,80 @@ const AddItem = () => {
                             }}
                             maxLength={24}
                             blurOnSubmit={false}
-
                             placeholder="Item Name"
                             style={{
-                                backgroundColor: "#D9D9D9",
+                                backgroundColor: '#D9D9D9',
                                 borderRadius: 20,
-                                color: "#054516",
+                                color: '#054516',
                                 paddingHorizontal: 20,
-                                marginTop: 14,
+                                marginVertical: 14,
                                 fontSize: 16,
                             }}
                         />
-
-
-                        <DropDown />
-
-
+                        <CustomDropdown />
+                        <TextInput
+                            multiline={true}
+                            numberOfLines={5}
+                            onSubmitEditing={() => {
+                                // emailInputRef.current.focus();
+                            }}
+                            maxLength={24}
+                            blurOnSubmit={false}
+                            placeholder="Describe Item"
+                            style={{
+                                backgroundColor: '#D9D9D9',
+                                borderRadius: 20,
+                                color: '#054516',
+                                paddingHorizontal: 20,
+                                marginVertical: 14,
+                                fontSize: 16,
+                                // textAlign: "justify"
+                                verticalAlign: 'top',
+                            }}
+                        />
+                        {/* <DropDown /> */}
+                        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}>
+                            <Text style={{ fontSize: 22 }}>Unit Name:</Text>
+                            <TextInput
+                                onSubmitEditing={() => {
+                                    // emailInputRef.current.focus();
+                                }}
+                                maxLength={24}
+                                blurOnSubmit={false}
+                                placeholder="Pcs./Kg/Dozen"
+                                style={{
+                                    width: "60%",
+                                    backgroundColor: '#D9D9D9',
+                                    borderRadius: 20,
+                                    color: '#054516',
+                                    paddingHorizontal: 20,
+                                    // marginVertical: 14,
+                                    fontSize: 16,
+                                }}
+                            />
+                        </View>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: "space-between" }}>
+                            <Text style={{ fontSize: 22 }}>Unit Price:</Text>
+                            <TextInput
+                                onSubmitEditing={() => {
+                                    // emailInputRef.current.focus();
+                                }}
+                                maxLength={24}
+                                blurOnSubmit={false}
+                                placeholder="$4.55"
+                                style={{
+                                    width: "60%",
+                                    backgroundColor: '#D9D9D9',
+                                    borderRadius: 20,
+                                    color: '#054516',
+                                    paddingHorizontal: 20,
+                                    marginVertical: 14,
+                                    fontSize: 16,
+                                }}
+                            />
+                        </View>
                     </View>
-                </View>
+                </ScrollView>
             </View>
         </>
     );
