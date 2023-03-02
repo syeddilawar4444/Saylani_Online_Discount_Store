@@ -3,16 +3,16 @@ import React from 'react'
 import NavbarAdmin from '../Components/NavAdmin'
 import Product from '../Components/Product'
 
-const AdminHome = () => {
+const AdminHome = ({ navigation }) => {
     return (
         <View>
             <NavbarAdmin />
-            <View style={{paddingHorizontal:10}}>
+            <View style={{ paddingHorizontal: 10 }}>
 
-            <Text style={{color:"#464773",fontSize:25}}>All Products</Text>
-            
+                <Text style={{ color: "#464773", fontSize: 25 }} onPress={() => { navigation.navigate("Order") }}>All Products</Text>
+
                 <Product />
-           
+
 
 
             </View>

@@ -21,6 +21,7 @@ import AdminHome from '../Screens/AdminHome';
 
 import NavbarAdmin from '../Components/NavAdmin';
 
+import AdminOrders from '../Screens/AdminOrdersScreen';
 
 
 
@@ -38,6 +39,8 @@ function Navigation() {
 
         <Stack.Screen name="User" component={User} />
         <Stack.Screen name="Admin" component={Admin} />
+        <Stack.Screen name="Order" component={AdminOrders} />
+
 
 
         {/* <Stack.Screen name="AddItem" component={AddItem} />
@@ -59,15 +62,15 @@ function User() {
     <Tab.Navigator
       screenOptions={{
         tabBarActiveTintColor: "#50bd48",
-    
+
         tabBarLabelStyle: {
           fontSize: 14,
-          color:"gray"
+          color: "gray"
         }
       }}
     >
       <Tab.Screen name="Home" component={Home} options={{
-          headerShown:false,
+        headerShown: false,
 
         tabBarLabel: "Home",
         tabBarIcon: ({ color }) => (
@@ -78,7 +81,7 @@ function User() {
       />
       <Tab.Screen name="Cart" component={Cart}
         options={{
-          headerShown:false,
+          headerShown: false,
 
           tabBarLabel: "Cart",
           tabBarIcon: ({ color }) => (
@@ -89,7 +92,7 @@ function User() {
       />
       <Tab.Screen name="Setting" component={UserSetting}
         options={{
-          headerShown:false,
+          headerShown: false,
           tabBarLabel: "Account",
           tabBarIcon: ({ color }) => (
             <Icon name="user-alt" size={22} color={color} />
@@ -107,18 +110,18 @@ function Admin() {
     <Tab.Navigator
       screenOptions={{
         tabBarActiveTintColor: "#50bd48",
-    
+
         tabBarLabelStyle: {
           fontSize: 14,
-          color:"gray"
+          color: "gray"
         }
       }}
     >
       <Tab.Screen name="AdminHome" component={AdminHome} options={{
-          headerShown:false,
-        headerPressColor:"red",
-   
-    
+        headerShown: false,
+        headerPressColor: "red",
+
+
 
         tabBarLabel: "Home",
         tabBarIcon: ({ color }) => (
@@ -129,7 +132,7 @@ function Admin() {
       />
       <Tab.Screen name="AddItem" component={AddItem}
         options={{
-          headerShown:false,
+          headerShown: false,
 
           tabBarLabel: "Add Items",
           tabBarIcon: ({ color }) => (
@@ -140,7 +143,7 @@ function Admin() {
       />
       <Tab.Screen name="AdminAccount" component={AdminAccount}
         options={{
-          headerShown:false,
+          headerShown: false,
           tabBarLabel: "Account",
           tabBarIcon: ({ color }) => (
             <Icon name="user-alt" size={22} color={color} />

@@ -13,6 +13,8 @@ import {
 //import components
 // import Background from "../Componets/Background";
 import InputField from "../Components/InputField";
+import Icon from "react-native-vector-icons/AntDesign"
+import Material from "react-native-vector-icons/MaterialCommunityIcons"
 import Btn from "../Components/Btn";
 // import BaseUrl from "../constant/BaseUrl"
 // import { signUpFirebase } from "../Config/firebase"
@@ -130,111 +132,148 @@ function Signup(props) {
           >
             <Text style={{ fontSize: 30, color: "#054516" }}>SAYLANI WELFAER</Text>
             <Text>ONLINE DISCOUNT STORE</Text>
-            <TextInput
-              autoFocus
-              onSubmitEditing={() => {
-                emailInputRef.current.focus();
-              }}
-              maxLength={24}
-              blurOnSubmit={false}
-              returnKeyType="next"
-              value={username}
-              enterKeyHint={"next"}
-              onChangeText={(e) => setUsername(e)}
-              placeholder="UserName..."
-              style={{
-                backgroundColor: "#e0e0e0",
-                borderRadius: 100,
-                color: "#054516",
-                paddingHorizontal: 10,
-                width: "77%",
-                paddingVertical: 10,
-                marginTop: 14,
-                fontSize: 16,
-              }}
-            />
-            <TextInput
-              value={email}
-              ref={emailInputRef}
-              onSubmitEditing={() => {
-                contactInputRef.current.focus();
-              }}
-              returnKeyType="next"
-              onChangeText={(e) => setEmail(e)}
-              placeholder="email@gmail..."
-              keyboardType={"email-address"}
-              style={{
-                backgroundColor: "#e0e0e0",
-                borderRadius: 100,
-                color: "#054516",
-                paddingHorizontal: 10,
-                width: "77%",
-                paddingVertical: 10,
-                marginTop: 14,
-                fontSize: 16,
-              }}
-            />
-            <TextInput
-              ref={contactInputRef}
-              onSubmitEditing={() => {
-                passwordInputRef.current.focus();
-              }}
-              returnKeyType="next"
-              value={contact}
-              maxLength={11}
-              onChangeText={(e) => setContact(e)}
-              placeholder="03xxxxxxxx"
-              keyboardType={"numeric"}
-              style={{
-                backgroundColor: "#e0e0e0",
-                borderRadius: 100,
-                color: "#054516",
-                paddingHorizontal: 10,
-                width: "77%",
-                paddingVertical: 10,
-                marginTop: 14,
-                fontSize: 16,
-              }}
-            />
-            <TextInput
-              ref={passwordInputRef}
-              value={password}
-              onSubmitEditing={() => {
-                cpasswordInputRef.current.focus();
-              }}
-              returnKeyType="next"
-              onChangeText={(e) => setPassword(e)}
-              placeholder="Password..."
-              secureTextEntry={true}
-              style={{
-                backgroundColor: "#e0e0e0",
-                borderRadius: 100,
-                color: "#054516",
-                paddingHorizontal: 10,
-                width: "77%",
-                paddingVertical: 10,
-                marginTop: 14,
-                fontSize: 16,
-              }}
-            />
-            <TextInput
-              ref={cpasswordInputRef}
-              onSubmitEditing={() => signUpUser()}
-              value={cPassword}
-              onChangeText={(e) => setConPassword(e)}
-              placeholder="Confirm Password..."
-              secureTextEntry={true}
-              style={{
-                backgroundColor: "#e0e0e0",
-                borderRadius: 100,
-                color: "#054516",
-                paddingHorizontal: 10,
-                width: "77%",
-                paddingVertical: 10,
-                marginTop: 14,
-                fontSize: 16,
-              }}
-            />
+            <View style={{
+              flexDirection: 'row', alignItems: "center", backgroundColor: "#e0e0e0",
+              borderRadius: 100,
+              color: "#054516",
+              paddingHorizontal: 10,
+              width: "77%",
+              paddingVertical: 3,
+              marginTop: 14,
+              fontSize: 16,
+            }} >
+              {/* <Icon name="user" size={25} /> */}
+              <Material name="account-outline" size={25} />
+
+              <TextInput
+                autoFocus
+                onSubmitEditing={() => {
+                  emailInputRef.current.focus();
+                }}
+                maxLength={24}
+                blurOnSubmit={false}
+                returnKeyType="next"
+                value={username}
+                enterKeyHint={"next"}
+                onChangeText={(e) => setUsername(e)}
+                placeholder="UserName..."
+                style={{
+
+                  fontSize: 16,
+                }}
+              />
+            </View>
+
+
+
+            <View style={{
+              flexDirection: 'row', alignItems: "center", backgroundColor: "#e0e0e0",
+              borderRadius: 100,
+              color: "#054516",
+              paddingHorizontal: 10,
+              width: "77%",
+              paddingVertical: 3,
+              marginTop: 14,
+              fontSize: 16,
+            }} >
+              <Material name="email-outline" size={25} />
+              <TextInput
+                value={email}
+                ref={emailInputRef}
+                onSubmitEditing={() => {
+                  contactInputRef.current.focus();
+                }}
+                returnKeyType="next"
+                onChangeText={(e) => setEmail(e)}
+                placeholder="email@gmail..."
+                keyboardType={"email-address"}
+                style={{
+                  fontSize: 16,
+                }}
+              />
+            </View>
+
+
+            <View style={{
+              flexDirection: 'row', alignItems: "center", backgroundColor: "#e0e0e0",
+              borderRadius: 100,
+              color: "#054516",
+              paddingHorizontal: 10,
+              width: "77%",
+              paddingVertical: 3,
+              marginTop: 14,
+              fontSize: 16,
+            }} >
+              <Material name="cellphone" size={25} />
+              <TextInput
+                ref={contactInputRef}
+                onSubmitEditing={() => {
+                  passwordInputRef.current.focus();
+                }}
+                returnKeyType="next"
+                value={contact}
+                maxLength={11}
+                onChangeText={(e) => setContact(e)}
+                placeholder="03xxxxxxxx"
+                keyboardType={"numeric"}
+                style={{
+
+                  fontSize: 16,
+                }}
+              />
+            </View>
+
+            <View style={{
+              flexDirection: 'row', alignItems: "center", backgroundColor: "#e0e0e0",
+              borderRadius: 100,
+              color: "#054516",
+              paddingHorizontal: 10,
+              width: "77%",
+              paddingVertical: 3,
+              marginTop: 14,
+              fontSize: 16,
+            }} >
+              <Material name="lock-outline" size={25} />
+              <TextInput
+                ref={passwordInputRef}
+                value={password}
+                onSubmitEditing={() => {
+                  cpasswordInputRef.current.focus();
+                }}
+                returnKeyType="next"
+                onChangeText={(e) => setPassword(e)}
+                placeholder="Password..."
+                secureTextEntry={true}
+                style={{
+
+                  fontSize: 16,
+                }}
+              />
+            </View>
+            <View style={{
+              flexDirection: 'row', alignItems: "center", backgroundColor: "#e0e0e0",
+              borderRadius: 100,
+              color: "#054516",
+              paddingHorizontal: 10,
+              width: "77%",
+              paddingVertical: 3,
+              marginTop: 14,
+              fontSize: 16,
+            }} >
+              <Material name="lock-outline" size={25} />
+              <TextInput
+                ref={cpasswordInputRef}
+                onSubmitEditing={() => signUpUser()}
+                value={cPassword}
+                onChangeText={(e) => setConPassword(e)}
+                placeholder="Confirm Password..."
+                secureTextEntry={true}
+                style={{
+
+                  fontSize: 16,
+                }}
+              />
+            </View>
 
             {/* fotgetpassword */}
             {/* <View style={{alignItems:"flex-end",width:"77%"    }}>

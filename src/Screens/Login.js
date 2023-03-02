@@ -83,14 +83,15 @@ function Login(props) {
           <Text style={{ fontSize: 35, color: "#054516" }}>SAYLANI WELFAER</Text>
           <Text>ONLINE DISCOUNT STORE</Text>
           {/* email input with emailIcon */}
-          <View style={{flexDirection:'row',alignItems:"center",  backgroundColor: "#e0e0e0",
-                borderRadius: 100,
-                color: "#054516",
-                paddingHorizontal: 10,
-                width: "77%",
-                paddingVertical: 3,
-                marginTop: 14,
-                fontSize: 16,}}>
+          <View style={{
+            flexDirection: 'row', alignItems: "center", backgroundColor: "#e0e0e0",
+            borderRadius: 100,
+            color: "#054516",
+            paddingHorizontal: 10,
+            width: "77%",
+            paddingVertical: 3,
+            marginTop: 14,
+          }}>
 
             <Icons name="email-outline" size={25} color="gray" />
             <TextInput
@@ -104,38 +105,41 @@ function Login(props) {
               value={email}
               keyboardType={"email-address"}
               style={{
+                fontSize: 16,
               }}
             />
           </View>
-            
 
 
-<View style={{flexDirection:'row',alignItems:"center",  backgroundColor: "#e0e0e0",
-                borderRadius: 100,
-                color: "#054516",
-                paddingHorizontal: 10,
-                width: "77%",
-                paddingVertical: 3,
-                marginTop: 14,
-                fontSize: 16,}}>
+
+          <View style={{
+            flexDirection: 'row', alignItems: "center", backgroundColor: "#e0e0e0",
+            borderRadius: 100,
+            color: "#054516",
+            paddingHorizontal: 10,
+            width: "77%",
+            paddingVertical: 3,
+            marginTop: 14,
+            fontSize: 16,
+          }}>
 
             <Icons name="lock-outline" size={25} color="gray" />
-         
-          <TextInput
-            placeholder="Password..."
-            ref={passwordInputRef}
-            value={password}
-            onChangeText={(e) => setPassword(e)}
-            secureTextEntry={true}
-            onSubmitEditing={
-              loginUser
 
-            }
-            style={{
-           
-            }}
-          />
-</View>
+            <TextInput
+              placeholder="Password..."
+              ref={passwordInputRef}
+              value={password}
+              onChangeText={(e) => setPassword(e)}
+              secureTextEntry={true}
+              onSubmitEditing={
+                loginUser
+
+              }
+              style={{
+
+              }}
+            />
+          </View>
           {/* <InputField vaue={username} placeholder="Email..." keyboardType={"email-address"}  />       
                         <InputField placeholder="Password..." secureTextEntry={true}  />    */}
 
