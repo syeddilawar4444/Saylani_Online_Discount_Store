@@ -50,7 +50,7 @@ const textColor  ={
         />
         <View style={{flex:1}}>
 
-  <Navigator />
+          <Navigator />
         </View>
         </>
   
