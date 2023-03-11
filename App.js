@@ -39,29 +39,29 @@ function App() {
   const back = {
     backgroundColor: isDarkMode ? "blue" : "red"
   }
-const textColor  ={
-  color:isDarkMode ? Colors.white : Colors.black
-}
+  const textColor = {
+    color: isDarkMode ? Colors.white : Colors.black
+  }
   return (
- <>
+    <>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={back.backgroundColor}
-        />
-        <View style={{flex:1}}>
+      />
+      <View style={{ flex: 1 }}>
 
-          <Navigator />
-        </View>
-        </>
-  
-      // {/* <ScrollView
-      //   contentInsetAdjustmentBehavior="automatic"
-      //   style={backgroundStyle}>
-      //   <Header />
-      //   <Navigator />
-      
-      // </ScrollView>
-      // */}
+        <Navigator />
+      </View>
+    </>
+
+    // {/* <ScrollView
+    //   contentInsetAdjustmentBehavior="automatic"
+    //   style={backgroundStyle}>
+    //   <Header />
+    //   <Navigator />
+
+    // </ScrollView>
+    // */}
 
 
   );
