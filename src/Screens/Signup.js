@@ -35,45 +35,58 @@ function Signup(props) {
   const [cPassword, setConPassword] = useState("");
 
 
-  const [showAlert, setShowAlert] = useState(true)
-  const [titleAlert, setTitleAlert] = useState("Welcome")
+  const [showAlert, setShowAlert] = useState(false)
+  const [alertValue, setAlertValue] = useState()
+  const [titleAlert, setTitleAlert] = useState("welcome")
   const [messageAlert, setMessageAlert] = useState("OPP")
-
-
-
 
 
 
   const [loading, setLoading] = useState(false)
 
+  const alertManage = (bol, title, message) => {
+    setShowAlert(bol)
+    setTitleAlert(title)
+    setMessageAlert(message)
+  }
+
+
   const signUpUser = async () => {
+    let validRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     setLoading(true)
     if (!email || !username || !contact || !password || !cPassword) {
+
       setLoading(false)
-      return alert("Please Fill The Form");
+
+      return alertManage(true, "OOPs!", "Please fill the form all input are valid ")
+
+
+
+      // return alert("Please Fill The Form");
     }
-    if (isNaN(contact)) {
+
+    if (!email.match(validRegex)) {
       setLoading(false)
-      return alert("InCorrect Number");
+      return alertManage(true, "Invalid", "Invalid Email Please Enter Valid Email ")
+
     }
+    if (isNaN(contact) || contact.length < 10) {
+      setLoading(false)
+      return alertManage(true, "Invalid", "Invalid Mobile Number Please Enter Valid Number ")
+    }
+
+    // if (contact.length < 11) {
+    //   setLroading(false)
+    //   return alert("Mobile Number invalid");
+    // }
 
     if (!(password === cPassword)) {
       setLoading(false)
-      return alert("Password Not Match");
-    }
+      return alertManage(true, "Not Match", "Password and Confirm Password Did Not Match")
 
-    if (contact.length < 11) {
-      setLoading(false)
-      return alert("Mobile Number invalid");
-    }
-    if (email.length < 12) {
-      setLoading(false)
-      return alert("Email Short");
     }
     try {
-      // const re = await signUpFirebase({ username, email, contact, password })
-
-      const response = await fetch("/auth/signup", {
+      const response = await fetch("http://192.168.4.106:4001/auth/signup", {
         method: "POST", // or 'PUT'
         headers: {
           "Content-Type": "application/json",
@@ -87,11 +100,6 @@ function Signup(props) {
         ),
       })
       const msg = await response.json()
-
-      // .then((response) => response.json())
-      // .then((data) => {
-      //   console.log("Success:", data);
-      // })
       console.warn(msg)
       setLoading(false)
       setUsername("")
@@ -99,17 +107,20 @@ function Signup(props) {
       setEmail("")
       setContact("")
       setConPassword("")
+
+
       Alert.alert(
         "SignUp",
         "Successfully Registered",
-        [{
-          text: "OK",
-          onPress: () => { props.navigation.replace("Login") }
-        }]
+        // [{
+        //   text: "OK",
+        //   onPress: () => { props.navigation.replace("Login") }
+        // }]
       )
 
     } catch (e) {
       setLoading(false)
+      console.warn("error")
       console.warn(e)
       switch (e.message) {
         case "Firebase: Password should be at least 6 characters (auth/weak-password).":
@@ -141,8 +152,10 @@ function Signup(props) {
           backgroundColor: "#000C40",
         }}
       >
-        <AwesomeAlert show={showAlert} title="user" message={"Invalid Password / email"} />
 
+        {/* <AwesomeAlert show={showAlert} title="Dilawar" message={"Invalid Password / email"} setShowAlert={setShowAlert} /> */}
+
+        <AwesomeAlert show={showAlert} title={titleAlert} message={messageAlert} setShowAlert={setShowAlert} />
 
         <View style={{ alignItems: "center", marginVertical: 10 }}>
           <Text
@@ -226,6 +239,7 @@ function Signup(props) {
               keyboardType={"email-address"}
               style={{
                 fontSize: 16,
+                width: "90%"
               }}
             />
           </View>
@@ -249,9 +263,9 @@ function Signup(props) {
               }}
               returnKeyType="next"
               value={contact}
-              maxLength={11}
+              maxLength={12}
               onChangeText={(e) => setContact(e)}
-              placeholder="03xxxxxxxx"
+              placeholder="923xxxxxxxx"
               keyboardType={"numeric"}
               style={{
 

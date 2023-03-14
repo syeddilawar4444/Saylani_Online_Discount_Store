@@ -1,20 +1,31 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, ImageBackground } from 'react-native';
 
 import AwesomeAlert from 'react-native-awesome-alerts';
 
-export default function AlertAwesome({ show, title, message }) {
+export default function AlertAwesome({ show, title, message, setShowAlert, success }) {
 
 
-
+    const [off, setOff] = useState(show)
     return (
         <AwesomeAlert
             show={show}
             showProgress={false}
             title={title}
+            titleStyle={{
+                color: success ? "green" : "red",
+                fontSize: 25,
+                fontWeight: "bold"
+
+            }}
             useNativeDriver={true}
             message={message}
-            closeOnTouchOutside={false}
+            messageStyle={{
+                fontSize: 18,
+                textAlign: "center",
+                color: "gray"
+            }}
+            closeOnTouchOutside={true}
             closeOnHardwareBackPress={false}
             // showCancelButton={true}
             showConfirmButton={true}
@@ -25,7 +36,6 @@ export default function AlertAwesome({ show, title, message }) {
             //     this.hideAlert();
             // }}
             onConfirmPressed={() => {
-                const [setShowAlert] = show
                 setShowAlert(false)
             }}
         />

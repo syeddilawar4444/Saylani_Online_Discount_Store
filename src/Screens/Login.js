@@ -6,6 +6,8 @@ import { Text, TouchableOpacity, View, TextInput, ActivityIndicator, Alert } fro
 import InputField from "../Components/InputField";
 import Btn from "../Components/Btn";
 import Icons from "react-native-vector-icons/MaterialCommunityIcons"
+import AwesomeAlert from "../Components/AwesomeAlert";
+
 // import BaseUrl from "../constant/BaseUrl";
 // import axios from "axios";
 // import {signInFirebase} from "../Config/firebase"
@@ -52,8 +54,58 @@ function Login(props) {
   //       }
 
   // }
-  const loginUser = () => {
-    alert("dilawr")
+
+  const [showAlert, setShowAlert] = useState(false)
+  const [titleAlert, setTitleAlert] = useState("welcome")
+  const [messageAlert, setMessageAlert] = useState("OPP")
+
+
+  const alertManage = (bol, title, message) => {
+    setShowAlert(bol)
+    setTitleAlert(title)
+    setMessageAlert(message)
+  }
+
+  const loginUser = async () => {
+    let validRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+
+    setLoading(true)
+    if (!email || !password) {
+      setLoading(false)
+      return alertManage(true, "OOPs!", "Please fill the form all input are valid ")
+
+
+    }
+    if (!email.match(validRegex)) {
+      setLoading(false)
+      return alertManage(true, "Invalid", "Invalid Email Please Enter Valid Email ")
+    }
+    try {
+
+      const response = await fetch("http://192.168.4.106:4001/auth/signin", {
+        method: "POST", // or 'PUT'
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password
+        }
+        ),
+      })
+      const msg = await response.json()
+      console.warn(msg)
+      setLoading(false)
+      // setEmail("")
+      // setPassword("")
+
+    } catch (e) {
+      setLoading(false)
+      alert("Faild")
+    }
+
+
   }
   return (
     <>
@@ -67,6 +119,7 @@ function Login(props) {
             marginVertical: 30,
           }}
         >
+
           Login
         </Text>
         {/* form container */}
@@ -80,6 +133,8 @@ function Login(props) {
             height: "100%",
           }}
         >
+          <AwesomeAlert show={showAlert} title={titleAlert} message={messageAlert} setShowAlert={setShowAlert} />
+
           <Text style={{ fontSize: 35, color: "#054516" }}>SAYLANI WELFAER</Text>
           <Text>ONLINE DISCOUNT STORE</Text>
           {/* email input with emailIcon */}
@@ -106,6 +161,7 @@ function Login(props) {
               keyboardType={"email-address"}
               style={{
                 fontSize: 16,
+                width: "90%"
               }}
             />
           </View>
