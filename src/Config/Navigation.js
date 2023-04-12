@@ -32,20 +32,13 @@ const Tab = createBottomTabNavigator();
 function Navigation() {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Signup">
+      <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Order">
         <Stack.Screen name="MainPage" component={MainPage} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Signup" component={Signup} />
 
         <Stack.Screen name="User" component={User} />
         <Stack.Screen name="Admin" component={Admin} />
-        <Stack.Screen name="Order" component={AdminOrders} />
-
-
-
-        {/* <Stack.Screen name="AddItem" component={AddItem} />
-        <Stack.Screen name="Admin" component={AdminAccount} />
-        <Stack.Screen name="AdminHome" component={AdminHome} /> */}
         <Stack.Screen name="Abd" component={UserSetting} />
 
       </Stack.Navigator>

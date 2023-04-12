@@ -109,7 +109,7 @@ function Login(props) {
   }
   return (
     <>
-      <View style={{ backgroundColor: "#000C40" }}>
+      <View style={{ backgroundColor: "#3CB371" }}>
         <Text
           style={{
             color: "white",
@@ -209,7 +209,7 @@ function Login(props) {
 
           {loading ? <ActivityIndicator style={{ alignSelf: "center", marginTop: 7 }} size={"large"} color="#0000ff" /> :
             <Btn
-              bgColor="green"
+              bgColor="#3CB371"
               textColor="white"
               btnLable="Login"
               press={loginUser}

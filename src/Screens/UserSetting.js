@@ -74,15 +74,15 @@ const UserSetting = () => {
       </View>
 
 
-       
 
-      <View contentContainerStyle={{ }}>
+
+      <View contentContainerStyle={{}}>
 
         <OrderView />
         <OrderView />
         <TouchableOpacity
           style={{
-            backgroundColor: 'green',
+            backgroundColor: '#61B846',
             paddingVertical: 13,
             borderRadius: 10,
             alignItems: 'center',

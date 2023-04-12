@@ -149,7 +149,7 @@ function Signup(props) {
         contentContainerStyle={{
           display: "flex",
           justifyContent: "space-between",
-          backgroundColor: "#000C40",
+          backgroundColor: "#3CB371",
         }}
       >
 
@@ -334,7 +334,7 @@ function Signup(props) {
 
           {loading ? <ActivityIndicator style={{ alignSelf: "center", marginTop: 10 }} size={"large"} color="#0000ff" />
             : <Btn
-              bgColor="green"
+              bgColor="#3CB371"
               textColor="white"
               btnLable="SignUp"
               press={signUpUser}
@@ -357,7 +357,19 @@ function Signup(props) {
             >
               <Text style={{ color: "#054516", fontSize: 16 }}>Login</Text>
             </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate("User")}
+            >
+              <Text style={{ color: "#054516", fontSize: 16 }}>User</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => props.navigation.navigate("Admin")}
+            >
+              <Text style={{ color: "#054516", fontSize: 16 }}>Admin</Text>
+            </TouchableOpacity>
           </View>
+
+
         </View>
       </ScrollView>
       {/* </KeyboardAvoidingView> */}

@@ -15,6 +15,14 @@ const Category = () => {
     const img1 =
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdopf3iLiIiQuBLexpctGkTw3ywqhaKIl9zg&usqp=CAU';
 
+    let arr = [
+        {
+            name: "Vegetable"
+            ,
+            img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdopf3iLiIiQuBLexpctGkTw3ywqhaKIl9zg&usqp=CAU'
+        }
+    ]
+
     return (
         <View
             style={{
@@ -27,8 +35,8 @@ const Category = () => {
                 borderColor: "#65BD50",
                 gap: 40
             }}>
-            <Image source={{ uri: img1 }} style={{ width: 40, height: 40, borderRadius: 50 }} />
-            <Text style={{ fontSize: 18, color: "#65BD50", fontWeight: "700" }} >Fruits</Text>
+            <Image source={{ uri: arr[0].img }} style={{ width: 40, height: 40, borderRadius: 50 }} />
+            <Text style={{ fontSize: 18, color: "#65BD50", fontWeight: "700" }} >{arr[0].name}</Text>
         </View>
     );
 };

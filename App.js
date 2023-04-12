@@ -37,7 +37,7 @@ function App() {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
   const back = {
-    backgroundColor: isDarkMode ? "blue" : "red"
+    backgroundColor: isDarkMode ? "#808080" : "#D3D3D3"
   }
   const textColor = {
     color: isDarkMode ? Colors.white : Colors.black
